@@ -2,8 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using api.Data;
+using api.Interfaces;
+using api.Model;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Cors;
 
 namespace api.Controllers
 {
@@ -11,36 +15,47 @@ namespace api.Controllers
     [ApiController]
     public class EventController : ControllerBase
     {
-        // GET: api/Event
+        // GET: api/Events
+        [EnableCors("OpenPolicy")]
+
         [HttpGet]
-        public IEnumerable<string> Get()
+        public List<Events> Get()
         {
-            return new string[] { "value1", "value2" };
+            IHandleEvents dataHandler = new EventDataHandler();
+            return dataHandler.Select();
         }
 
-        // GET: api/Event/5
+        // GET: api/Events/5
+        [EnableCors("OpenPolicy")]
         [HttpGet("{id}", Name = "Get")]
         public string Get(int id)
         {
             return "value";
         }
 
-        // POST: api/Event
+        // POST: api/Events
+        [EnableCors("OpenPolicy")]
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] Events value)
         {
+            //value.datahandler.Insert(value);
         }
 
-        // PUT: api/Event/5
+        // PUT: api/Events/5
+        [EnableCors("OpenPolicy")]
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(int id, [FromBody] Events value)
         {
+            //value.datahandler.Update(value);
         }
 
-        // DELETE: api/Event/5
+        // DELETE: api/Events/5
+        [EnableCors("OpenPolicy")]
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            // Events value = new Events(){Id = id};
+            // value.datahandler.Delete(value);
         }
     }
 }

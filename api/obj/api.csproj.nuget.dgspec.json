@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/hannarosenmertz/Desktop/Source/Repos/cts/api/api.csproj": {}
+    "/Users/treyrush/Desktop/projectWorkSpace/cts/api/api.csproj": {}
   },
   "projects": {
-    "/Users/hannarosenmertz/Desktop/Source/Repos/cts/api/api.csproj": {
+    "/Users/treyrush/Desktop/projectWorkSpace/cts/api/api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/hannarosenmertz/Desktop/Source/Repos/cts/api/api.csproj",
+        "projectUniqueName": "/Users/treyrush/Desktop/projectWorkSpace/cts/api/api.csproj",
         "projectName": "api",
-        "projectPath": "/Users/hannarosenmertz/Desktop/Source/Repos/cts/api/api.csproj",
-        "packagesPath": "/Users/hannarosenmertz/.nuget/packages/",
-        "outputPath": "/Users/hannarosenmertz/Desktop/Source/Repos/cts/api/obj/",
+        "projectPath": "/Users/treyrush/Desktop/projectWorkSpace/cts/api/api.csproj",
+        "packagesPath": "/Users/treyrush/.nuget/packages/",
+        "outputPath": "/Users/treyrush/Desktop/projectWorkSpace/cts/api/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/hannarosenmertz/.nuget/NuGet/NuGet.Config"
+          "/Users/treyrush/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -45,6 +45,14 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[5.6.3, )"
+            },
+            "System.Data.SQLite.Core": {
+              "target": "Package",
+              "version": "[1.0.115.5, )"
+            },
+            "mysql.data": {
+              "target": "Package",
+              "version": "[8.0.27, )"
             }
           },
           "imports": [
@@ -65,7 +73,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.400/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.403/RuntimeIdentifierGraph.json"
         }
       }
     }
