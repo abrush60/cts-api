@@ -490,6 +490,7 @@ progress {
 .lead {
   font-size: 1.25rem;
   font-weight: 300;
+  color: white
 }
 
 .display-1 {
@@ -638,6 +639,8 @@ progress {
   padding-left: var(--bs-gutter-x, 0.75rem);
   margin-right: auto;
   margin-left: auto;
+  border: 5px;
+  background-color: darkred;
 }
 
 @media (min-width: 576px) {
