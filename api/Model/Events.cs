@@ -1,7 +1,7 @@
 using api.Interfaces;
 using api.Data;
 
-namespace api.Model
+namespace api.models
 {
     public class Events
     {

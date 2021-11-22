@@ -1,7 +1,7 @@
 using System.Dynamic;
 using System.Collections.Generic;
 using api.Interfaces;
-using api.Model;
+using api.models;
 
 namespace api.Data
 {

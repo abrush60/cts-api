@@ -1,3 +1,8 @@
+using api.Data;
+using api.interfaces;
+using api.models;
+using MySql.Data.MySqlClient;
+
 namespace api.database
 {
     public class SaveClient : ISaveClient
@@ -31,13 +36,18 @@ namespace api.database
             using var cmd = new MySqlCommand(stm, con);
             cmd.ExecuteNonQuery();
         }
+
+        public void SaveBook(Client myClient)
+        {
+            return;
+        }
         void ISaveClient(Client myClient)
             {
                 throw new System.NotImplementedException();
             }
             void ISaveClient.SaveClient(Client myClient)
             {
-                throw new NotImplementedException();
+                throw new System.NotImplementedException();
             }
     }
 }

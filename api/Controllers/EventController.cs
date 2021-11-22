@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using api.Data;
 using api.Interfaces;
-using api.Model;
+using api.models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Cors;
