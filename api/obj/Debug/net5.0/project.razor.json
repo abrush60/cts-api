@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "FilePath": "/Users/treyrush/Desktop/projectWorkSpace/cts/api/api.csproj",
+=======
+  "FilePath": "/Users/hannarosenmertz/Desktop/Source/Repos/cts/api/api.csproj",
+>>>>>>> 37b1871e9aadd1e320ad75f15da5965dc3aa4ff9
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "5.0",
