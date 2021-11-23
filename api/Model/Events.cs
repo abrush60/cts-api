@@ -5,8 +5,11 @@ namespace api.models
 {
     public class Events
     {
-        public int Id {get; set;}
-        public string Name {get; set;}
+        public int eventId {get; set;}
+        public int employeeId {get; set;}
+        public int clientId {get; set;}
+
+        public string clientEmail {get; set;}
 
         public IHandleEvents eventHandler {get; set;}
 

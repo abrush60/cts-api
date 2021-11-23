@@ -25,8 +25,8 @@ namespace api.Data
 
         public void Insert(Events events)
         {
-            string sql = "INSERT INTO events (id, ownerName) ";
-            sql += "VALUES (@id, @ownerName";
+            string sql = "INSERT INTO event (eventId, employeeId, clientId, clientEmail) ";
+            sql += "VALUES (@eventId, @employeeId, @clientId, @clientEmail)";
 
             var values = GetValues(events);
             db.Open();
@@ -37,15 +37,17 @@ namespace api.Data
         public List<Events> Select()
         {
             db.Open();
-            string sql = "SELECT * from events";
+            string sql = "SELECT * from event";
             List<ExpandoObject> results = db.Select(sql);
 
             List<Events> events = new List<Events>();
             foreach(dynamic item in results)
             {
                 Events temp = new Events(){
-                    Id = item.Id,
-                    Name = item.Name,
+                    eventId = item.eventId,
+                    employeeId = item.employeeId,
+                    clientId = item.clientId,
+                    clientEmail = item.clientEmail,
                 };
 
                 events.Add(temp);
@@ -69,8 +71,10 @@ namespace api.Data
         public Dictionary<string, object> GetValues(Events events)
         {
             var values = new Dictionary<string, object>(){
-                {"@id", events.Id},
-                {"@ownerName", events.Name},
+                {"@eventId", events.eventId},
+                {"@employeeId", events.employeeId},
+                {"@clientId", events.clientId},
+                {"@clientEmail", events.clientEmail},
             };
 
             return values;
