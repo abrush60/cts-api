@@ -38,7 +38,7 @@ namespace api.Controllers
         [HttpPost]
         public void Post([FromBody] Events value)
         {
-            //value.datahandler.Insert(value);
+            value.eventHandler.Insert(value);
         }
 
         // PUT: api/Events/5
