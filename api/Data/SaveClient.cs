@@ -31,7 +31,7 @@ namespace api.database
             using var con = new MySqlConnection(cs);
             con.Open();
 
-            string stm = @"CREATE TABLE client(email TEXT PRIMARY KEY AUTO_INCREMENT, userName TEXT, clientPassword TEXT, phone TEXT)";
+            string stm = @"CREATE TABLE client(clientEmail TEXT PRIMARY KEY AUTO_INCREMENT, clientName TEXT, userName TEXT, clientPassword TEXT, phone TEXT)";
 
             using var cmd = new MySqlCommand(stm, con);
             cmd.ExecuteNonQuery();
