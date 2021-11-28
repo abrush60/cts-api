@@ -7,10 +7,10 @@ namespace api.Interfaces
     {
         public List<Client> Select();
 
-        public void Delete(Client person);
+        public void Delete(Client client);
 
-        public void Update(Client person);
+        public void Update(Client client);
 
-        public void Insert(Client person);
+        public void Insert(Client client);
     }
 }

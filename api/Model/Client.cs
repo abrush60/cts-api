@@ -9,7 +9,7 @@ namespace api.models
         public string clientName { get; set; }
         public string clientPass { get; set; }
         public string clientEmail { get; set; }
-        public string clientPhone { get; set; }
+        public string phone { get; set; }
 
         public IHandleClients clientHandler {get; set;}
 

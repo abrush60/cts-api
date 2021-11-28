@@ -16,7 +16,7 @@ namespace api.Data
 
         public void Delete(Events events)
         {
-            string sql = "UPDATE person SET deleted= 'Y' WHERE id=@id";
+            string sql = "UPDATE event SET deleted= 'Y' WHERE eventId=@eventid";
             var values = GetValues(events);
             db.Open();
             db.Update(sql, values);

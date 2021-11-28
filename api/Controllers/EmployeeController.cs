@@ -13,18 +13,18 @@ namespace api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ClientController : ControllerBase
+    public class EmployeeController : ControllerBase
     {
-        // GET: api/Client
+        // GET: api/Employee
         [EnableCors("OpenPolicy")]
         [HttpGet]
-        public List<Client> Get()
+        public List<Employee> Get()
         {
-            IHandleClients dataHandler = new ClientDataHandler();
+            IHandleEmployees dataHandler = new EmployeeDataHandler();
             return dataHandler.Select();
         }
 
-        // GET: api/Client/5
+        // GET: api/Employee/5
         [EnableCors("OpenPolicy")]
         [HttpGet("{id}")]
         public string Get(int id)
@@ -32,29 +32,29 @@ namespace api.Controllers
             return "value";
         }
 
-        // POST: api/Client
+        // POST: api/Employee
         [EnableCors("OpenPolicy")]
         [HttpPost]
-        public void Post([FromBody] Client value)
+        public void Post([FromBody] Employee value)
         {
-            value.clientHandler.Insert(value);
+            value.employeeHandler.Insert(value);
         }
 
-        // PUT: api/Client/5
+        // PUT: api/Employee/5
         [EnableCors("OpenPolicy")]
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] Client value)
+        public void Put(int id, [FromBody] Employee value)
         {
-            value.clientHandler.Update(value);
+            value.employeeHandler.Update(value);
         }
 
-        // DELETE: api/Client/5
+        // DELETE: api/Employee/5
         [EnableCors("OpenPolicy")]
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            Client value = new Client(){clientID = id};
-            value.clientHandler.Delete(value);
+            Employee value = new Employee(){employeeID = id};
+            value.employeeHandler.Delete(value);
         }
     }
 }

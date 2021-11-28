@@ -26,7 +26,7 @@ namespace api.Data
                     clientName = item.clientName,
                     clientPass = item.clientPass,
                     clientEmail = item.clientEmail,
-                    clientPhone = item.clientPhone,
+                    phone = item.phone,
                 };
 
                 clients.Add(temp);
@@ -35,20 +35,30 @@ namespace api.Data
             return clients;
         }
 
-         public void Delete(Client clients)
+         public void Delete(Client client)
          {
-
+             string sql = "UPDATE client SET deleted= 'Y' WHERE eventId=@eventid";
+            var values = GetValues(client);
+            db.Open();
+            db.Update(sql, values);
+            db.Close();
          }
 
          public void Update(Client clients)
          {
-             
+            string sql = "UPDATE event SET clientID=@clientID, clientName=@clientName, clientPass=@clientPass clientEmail=@clientEmail, phone=@phone, ";
+            sql += "WHERE eventId = @Id;";
+
+            var values = GetValues(clients);
+            db.Open();
+            db.Update(sql, values);
+            db.Close();
          }
 
          public void Insert(Client clients)
         {
-            string sql = "INSERT INTO event (clientID, clientName, clientPass, clientEmail, clientPass) ";
-            sql += "VALUES (@clientID, @clientName, @clientPass, @clientEmail, @clientPass)";
+            string sql = "INSERT INTO event (clientID, clientName, clientPass, clientEmail, phone) ";
+            sql += "VALUES (@clientID, @clientName, @clientPass, @clientEmail, @phone)";
 
             var values = GetValues(clients);
             db.Open();

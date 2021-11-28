@@ -9,10 +9,10 @@ namespace api.Interfaces
     {
          public List<Events> Select();
 
-         public void Delete(Events person);
+         public void Delete(Events events);
 
-         public void Update(Events person);
+         public void Update(Events events);
 
-         public void Insert(Events person);
+         public void Insert(Events events);
     }
 }
