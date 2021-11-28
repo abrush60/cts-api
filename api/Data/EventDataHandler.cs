@@ -25,8 +25,8 @@ namespace api.Data
 
         public void Insert(Events events)
         {
-            string sql = "INSERT INTO event (eventId, employeeId, clientId, clientEmail) ";
-            sql += "VALUES (@eventId, @employeeId, @clientId, @clientEmail)";
+            string sql = "INSERT INTO event (eventId, employeeId, clientId, clientEmail, clientPhone) ";
+            sql += "VALUES (@eventId, @employeeId, @clientId, @clientEmail, @clientPhone)";
 
             var values = GetValues(events);
             db.Open();
