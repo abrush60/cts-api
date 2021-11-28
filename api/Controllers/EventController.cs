@@ -46,7 +46,7 @@ namespace api.Controllers
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] Events value)
         {
-            //value.datahandler.Update(value);
+            value.eventHandler.Update(value);
         }
 
         // DELETE: api/Events/5
@@ -54,8 +54,8 @@ namespace api.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            // Events value = new Events(){Id = id};
-            // value.datahandler.Delete(value);
+            Events value = new Events(){eventId = id};
+            value.eventHandler.Delete(value);
         }
     }
 }
