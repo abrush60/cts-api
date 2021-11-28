@@ -1,13 +1,16 @@
+using System.Collections.Generic;
+using api.models;
+
 namespace api.Interfaces
 {
     public interface IHandleClients
     {
-        public List<Events> Select();
+        public List<Client> Select();
 
-        public void Delete(Events person);
+        public void Delete(Client person);
 
-        public void Update(Events person);
+        public void Update(Client person);
 
-        public void Insert(Events person);
+        public void Insert(Client person);
     }
 }
