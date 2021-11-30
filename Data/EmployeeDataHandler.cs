@@ -53,7 +53,7 @@ namespace api.Data
 
                 employees.Add(temp);
             }
-
+            db.Close();
             return employees;
         }
 

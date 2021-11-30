@@ -52,6 +52,7 @@ namespace api.Data
 
                 events.Add(temp);
             }
+            db.Close();
 
             return events;
         }
