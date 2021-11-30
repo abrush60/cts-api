@@ -59,7 +59,7 @@ namespace api.Controllers
         //PUT: for login needs link /api/Client/login
         [EnableCors("OpenPolicy")]
         [HttpPost("login")]
-        public Client Login([FromBody] Client value)
+        public int Login([FromBody] Client value)
         {
             IHandleClients dataHandler = new ClientDataHandler();
             List <Client> myClient = dataHandler.Select();
@@ -67,14 +67,13 @@ namespace api.Controllers
             {
                 if (client.clientEmail == value.clientEmail && client.clientPass == value.clientPass)
                 {
-                    return client;
+                    return 1;
                 }
                 else 
                 {
-                    return new Client();
+                    return 0;
                 }
             }
-            return new Client();
         }
     }
 }
