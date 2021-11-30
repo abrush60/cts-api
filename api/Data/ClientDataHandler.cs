@@ -31,6 +31,7 @@ namespace api.Data
 
                 clients.Add(temp);
             }
+            db.Close();
 
             return clients;
         }

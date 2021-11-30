@@ -52,6 +52,7 @@ namespace api.Data
 
                 reviews.Add(temp);
             }
+            db.Close();
 
             return reviews;
         }
