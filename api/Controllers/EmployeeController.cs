@@ -56,5 +56,24 @@ namespace api.Controllers
             Employee value = new Employee(){employeeID = id};
             value.employeeHandler.Delete(value);
         }
+        [EnableCors("OpenPolicy")]
+        [HttpPost("emplogin")]
+        public int Login([FromBody] Employee value)
+        {
+            IHandleEmployees dataHandler = new EmployeeDataHandler();
+            List <Employee> myEmployee = dataHandler.Select();
+            foreach (Employee employee in myEmployee)
+            {
+                if (employee.employeeEmail == value.employeeEmail && employee.employeePass == value.employeePass)
+                {
+                    return 1;
+                }
+                else 
+                {
+                    return 0;
+                }
+            }
+            return 0;
+        }
     }
 }
