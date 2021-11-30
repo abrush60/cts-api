@@ -56,5 +56,25 @@ namespace api.Controllers
             Client value = new Client(){clientID = id};
             value.clientHandler.Delete(value);
         }
+        //PUT: for login needs link /api/Client/login
+        [EnableCors("OpenPolicy")]
+        [HttpPost("login")]
+        public Client Login([FromBody] Client value)
+        {
+            IHandleClients dataHandler = new ClientDataHandler();
+            List <Client> myClient = dataHandler.Select();
+            foreach (Client client in myClient)
+            {
+                if (client.clientEmail == value.clientEmail && client.clientPass == value.clientPass)
+                {
+                    return client;
+                }
+                else 
+                {
+                    return new Client();
+                }
+            }
+            return new Client();
+        }
     }
 }
