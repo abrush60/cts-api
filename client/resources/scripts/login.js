@@ -32,8 +32,8 @@ function PostRequest(){
             localStorage.setItem("client",0);
         } else {
             alert("Success!");
-            localStorage.setItem("employee", num);
-            goHome();
+            localStorage.setItem("client", num);
+            //goHome();
         }
         
     })
