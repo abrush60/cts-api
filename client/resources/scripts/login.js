@@ -26,14 +26,18 @@ function PostRequest(){
             clientPass: password
         })
     })
-    .then((response)=> {
-        console.log(response);
-        console.log(username);
-        console.log(password);
-        goHome();
-        //document.getElementById("user").value = "";
+    .then((response)=> response.json()).then(num =>{
+        if (num === 0){
+            alert("Incorrect Login");
+            localStorage.setItem("client",0);
+        } else {
+            alert("Success!");
+            localStorage.setItem("employee", num);
+            goHome();
+        }
         
     })
+    .catch(error => console.log(error));
 }
 
 function goHome(){
