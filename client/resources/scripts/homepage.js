@@ -1,4 +1,4 @@
-const baseUrl = "https://cts-client.herokuapp.com/";
+const baseUrl = "https://cts-client.herokuapp.com/homepage.html";
 
 function loadHomePage(){
     const peopleUrl = baseUrl;
