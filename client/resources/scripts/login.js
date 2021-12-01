@@ -33,7 +33,6 @@ function PostRequest(){
         } else {
             alert("Success!");
             localStorage.setItem("client", num);
-            //goHome();
         }
         
     })
