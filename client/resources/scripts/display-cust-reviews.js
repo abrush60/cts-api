@@ -29,9 +29,9 @@ window.addEventListener('DOMContentLoaded', () => {
 })
 
 function handleOnLoad(){
-    const postApiUrl = "client/display-cust-reviews.html";
+    const ApiUrl = "http://cts-api-321.herokuapp.com/api/Review";
 
-    fetch(postApiUrl).then(function(response){   
+    fetch(ApiUrl).then(function(response){   
         return response.json();
     }).then(function(json){
         console.log(json);
@@ -44,7 +44,7 @@ function displayPosts(json){
     let html = "<div class =\"container\">";
 
     json.forEach(text => {
-        html += "<p><b>Post: </b>" + text.text + "</p>";
+        html += "<p><b>Review: </b>" + text.text + "</p>";
    // html += "<form onsubmit = return false; method = edit> ";
             html += "<input id = \"edit"+text.postID+"\" type=text/>";
             html += "<button onclick=handleOnEdit("+text.postID+")>Edit</button>";
