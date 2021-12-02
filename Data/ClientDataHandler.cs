@@ -59,8 +59,8 @@ namespace api.Data
 
          public void Insert(Client clients)
         {
-            string sql = "INSERT INTO event (clientID, clientFirstName, clientLastName, clientPass, clientEmail, phone) ";
-            sql += "VALUES (@clientID, @clientFirstName, @clientLastName, @clientPass, @clientEmail, @phone)";
+            string sql = "INSERT INTO event (clientFirstName, clientLastName, clientPass, clientEmail, phone) ";
+            sql += "VALUES (@clientFirstName, @clientLastName, @clientPass, @clientEmail, @phone)";
 
             var values = GetValues(clients);
             db.Open();
