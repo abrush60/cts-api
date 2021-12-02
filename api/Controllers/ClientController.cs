@@ -37,6 +37,7 @@ namespace api.Controllers
         [HttpPost]
         public void Post([FromBody] Client value)
         {
+            Console.WriteLine(value);
             value.clientHandler.Insert(value);
         }
 

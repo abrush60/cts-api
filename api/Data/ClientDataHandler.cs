@@ -48,7 +48,7 @@ namespace api.Data
 
          public void Update(Client clients)
          {
-            string sql = "UPDATE event SET clientFirstName=@clientFirstName, clientLastName=@clientLastName, clientPass=@clientPass clientEmail=@clientEmail, phone=@phone, ";
+            string sql = "UPDATE client SET clientFirstName=@clientFirstName, clientLastName=@clientLastName, clientPass=@clientPass clientEmail=@clientEmail, phone=@phone, ";
             sql += "WHERE eventId = @Id;";
 
             var values = GetValues(clients);
@@ -59,7 +59,7 @@ namespace api.Data
 
          public void Insert(Client clients)
         {
-            string sql = "INSERT INTO event (clientFirstName, clientLastName, clientPass, clientEmail, phone) ";
+            string sql = "INSERT INTO client (clientFirstName, clientLastName, clientPass, clientEmail, phone) ";
             sql += "VALUES (@clientFirstName, @clientLastName, @clientPass, @clientEmail, @phone)";
 
             var values = GetValues(clients);
