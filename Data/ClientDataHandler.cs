@@ -48,7 +48,7 @@ namespace api.Data
 
          public void Update(Client clients)
          {
-            string sql = "UPDATE event SET clientID=@clientID, clientFirstName=@clientFirstName, clientLastName=@clientLastName, clientPass=@clientPass clientEmail=@clientEmail, phone=@phone, ";
+            string sql = "UPDATE event SET clientFirstName=@clientFirstName, clientLastName=@clientLastName, clientPass=@clientPass clientEmail=@clientEmail, phone=@phone, ";
             sql += "WHERE eventId = @Id;";
 
             var values = GetValues(clients);
