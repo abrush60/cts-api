@@ -25,8 +25,8 @@ namespace api.Data
 
         public void Insert(Events events)
         {
-            string sql = "INSERT INTO event (eventId, employeeId, clientId, clientEmail, clientPhone) ";
-            sql += "VALUES (@eventId, @employeeId, @clientId, @clientEmail, @clientPhone)";
+            string sql = "INSERT INTO event (eventId, employeeId, clientId, clientEmail, clientPhone, confirmed, assigned, dayOfStatus, setupCompleted, inProgress, tearDown, complete) ";
+            sql += "VALUES (@eventId, @employeeId, @clientId, @clientEmail, @clientPhone, @confirmed, @assigned, @dayOfStatus, @setupCompleted, @inProgress, @tearDown, @complete)";
 
             var values = GetValues(events);
             db.Open();
@@ -40,6 +40,7 @@ namespace api.Data
             string sql = "SELECT * from event";
             List<ExpandoObject> results = db.Select(sql);
 
+
             List<Events> events = new List<Events>();
             foreach(dynamic item in results)
             {
@@ -48,6 +49,13 @@ namespace api.Data
                     employeeId = item.employeeId,
                     clientId = item.clientId,
                     clientEmail = item.clientEmail,
+                    confirmed = item.confirmed,
+                    assigned = item.assigned,
+                    dayOfStatus = item.dayOfStatus,
+                    setupCompleted = item.setupCompleted,
+                    inProgress = item.inProgress,
+                    tearDown = item.tearDown,
+                    complete = item.complete
                 };
 
                 events.Add(temp);
@@ -59,7 +67,7 @@ namespace api.Data
 
         public void Update(Events events)
         {
-            string sql = "UPDATE event SET eventId=@eventId, employeeId=@employeeId, clientId=@clientId, clientEmail=@clientEmail, clientPhone=@clientPhone, ";
+            string sql = "UPDATE event SET eventId=@eventId, employeeId=@employeeId, clientId=@clientId, clientEmail=@clientEmail, clientPhone=@clientPhone,confirmed=@confirmed, assigned=@assigned, dayOfStatus=@dayOfStatus, setupCompleted=@setupCompleted, inProgress=@inProgress, tearDown=@tearDown, complete=@complete ";
             sql += "WHERE eventId = @Id;";
 
             var values = GetValues(events);
@@ -75,6 +83,13 @@ namespace api.Data
                 {"@employeeId", events.employeeId},
                 {"@clientId", events.clientId},
                 {"@clientEmail", events.clientEmail},
+                {"@confirmed", events.confirmed},
+                {"@assigned", events.assigned},
+                {"@dayOfStatus", events.dayOfStatus},
+                {"@setupCompleted", events.setupCompleted},
+                {"@inProgress", events.inProgress},
+                {"@tearDown", events.tearDown},
+                {"@complete", events.complete},
             };
 
             return values;
