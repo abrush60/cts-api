@@ -23,7 +23,8 @@ namespace api.Data
             {
                 Client temp = new Client(){
                     clientID = item.clientID,
-                    clientName = item.clientName,
+                    clientFirstName = item.clientFirstName,
+                    clientLastName = item.clientLastName,
                     clientPass = item.clientPass,
                     clientEmail = item.clientEmail,
                     phone = item.phone,
@@ -47,7 +48,7 @@ namespace api.Data
 
          public void Update(Client clients)
          {
-            string sql = "UPDATE event SET clientID=@clientID, clientName=@clientName, clientPass=@clientPass clientEmail=@clientEmail, phone=@phone, ";
+            string sql = "UPDATE event SET clientID=@clientID, clientFirstName=@clientFirstName, clientLastName=@clientLastName, clientPass=@clientPass clientEmail=@clientEmail, phone=@phone, ";
             sql += "WHERE eventId = @Id;";
 
             var values = GetValues(clients);
@@ -58,8 +59,8 @@ namespace api.Data
 
          public void Insert(Client clients)
         {
-            string sql = "INSERT INTO event (clientID, clientName, clientPass, clientEmail, phone) ";
-            sql += "VALUES (@clientID, @clientName, @clientPass, @clientEmail, @phone)";
+            string sql = "INSERT INTO event (clientID, clientFirstName, clientLastName, clientPass, clientEmail, phone) ";
+            sql += "VALUES (@clientID, @clientFirstName, @clientLastName, @clientPass, @clientEmail, @phone)";
 
             var values = GetValues(clients);
             db.Open();
@@ -71,7 +72,8 @@ namespace api.Data
         {
             var values = new Dictionary<string, object>(){
                 {"@clientId", clients.clientID},
-                {"@clientName", clients.clientName},
+                {"@clientFirstName", clients.clientFirstName},
+                {"@clientLastName", clients.clientLastName},
                 {"@clientPass", clients.clientPass},
                 {"@clientEmail", clients.clientEmail},
                 {"@clientPass", clients.clientPass}
