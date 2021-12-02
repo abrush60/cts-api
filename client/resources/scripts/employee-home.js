@@ -12,7 +12,13 @@ list.addEventListener('click', function(ev) {
 
 
 function handleOnLoad(){
-    DisplayEvents();
+  const postApiUrl = "https://cts-api-321.herokuapp.com/api/Event/";
+
+  fetch(postApiUrl).then(function(response){   
+      return response.json();
+  }).then(function(json){
+      console.log(json);
+  })
     CheckList();
   
 }

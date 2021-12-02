@@ -25,8 +25,8 @@ namespace api.Data
 
         public void Insert(Review review)
         {
-            string sql = "INSERT INTO review (eventId, reviewId, clientId, text) ";
-            sql += "VALUES (@eventId, @reviewId, @clientId, @text)";
+            string sql = "INSERT INTO review (eventId, reviewId, clientId, text, foodRating, musicRating, equipmentRating, overallRating) ";
+            sql += "VALUES (@eventId, @reviewId, @clientId, @text, @foodRating, @musicRating, @equipmentRating, @overallRating)";
 
             var values = GetValues(review);
             db.Open();
@@ -48,6 +48,10 @@ namespace api.Data
                     reviewId = item.reviewId,
                     clientId = item.clientId,
                     text = item.text,
+                    foodRating = item.foodRating,
+                    musicRating = item.musicRating,
+                    equipmentRating = item.equipmentRating,
+                    overallRating = item.overallRating
                 };
 
                 reviews.Add(temp);
@@ -59,7 +63,7 @@ namespace api.Data
 
         public void Update(Review review)
         {
-            string sql = "UPDATE review SET eventId=@eventId, reviewId=@reviewId, clientId=@clientId, text=@text";
+            string sql = "UPDATE review SET eventId=@eventId, reviewId=@reviewId, clientId=@clientId, text=@text, foodRating=@foodRating, musicRating=@musicRating, equipmentRating=@equipmentRating, overallRating=@overallRating";
             sql += "WHERE eventId = @Id;";
 
             var values = GetValues(review);
@@ -75,6 +79,10 @@ namespace api.Data
                 {"@reviewId", review.reviewId},
                 {"@clientId", review.clientId},
                 {"@text", review.text},
+                {"@foodRating", review.foodRating},
+                {"@musicRating", review.musicRating},
+                {"@equipmentRating", review.equipmentRating},
+                {"@overallRating", review.overallRating},
             };
 
             return values;
