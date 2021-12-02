@@ -38,7 +38,7 @@ namespace api.Controllers
         public void Post([FromBody] Client value)
         {
             Console.WriteLine(value);
-            //value.clientHandler.Insert(value);
+            value.clientHandler.Insert(value);
         }
 
         // PUT: api/Client/5
