@@ -33,7 +33,7 @@ namespace api.Controllers
         }
 
         // POST: api/Client
-        [EnableCors("OpenPolicy")]
+        //[EnableCors("OpenPolicy")]
         [HttpPost]
         public void Post([FromBody] Client value)
         {
