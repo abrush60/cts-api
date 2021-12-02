@@ -35,9 +35,9 @@ namespace api.Controllers
         // POST: api/Client
         [EnableCors("OpenPolicy")]
         [HttpPost]
-        public void Post([FromBody] Client value)
+        public void Post([FromBody] string value)
         {
-            value.clientHandler.Insert(value);
+            //value.clientHandler.Insert(value);
         }
 
         // PUT: api/Client/5
