@@ -12,14 +12,14 @@ namespace api.models
 
         public string clientEmail {get; set;}
 
-        public sbyte confirmed {get; set;}
-        public sbyte assigned {get; set;}
-        public sbyte dayOfStatus {get; set;}
-        public sbyte setupCompleted {get; set;}
-        public sbyte inProgress {get; set;}
+        public bool confirmed {get; set;}
+        public bool assigned {get; set;}
+        public bool dayOfStatus {get; set;}
+        public bool setupCompleted {get; set;}
+        public bool inProgress {get; set;}
 
-        public sbyte tearDown{get; set;}
-        public sbyte complete{get; set;}
+        public bool tearDown{get; set;}
+        public bool complete{get; set;}
 
         public string kera { get; set; }        
 

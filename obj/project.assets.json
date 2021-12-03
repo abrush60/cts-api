@@ -7120,11 +7120,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/hannarosenmertz/Desktop/Source/Repos/api/api.csproj",
+      "projectUniqueName": "/Users/hannarosenmertz/Desktop/Source/Repos/cts/api/api.csproj",
       "projectName": "api",
-      "projectPath": "/Users/hannarosenmertz/Desktop/Source/Repos/api/api.csproj",
+      "projectPath": "/Users/hannarosenmertz/Desktop/Source/Repos/cts/api/api.csproj",
       "packagesPath": "/Users/hannarosenmertz/.nuget/packages/",
-      "outputPath": "/Users/hannarosenmertz/Desktop/Source/Repos/api/obj/",
+      "outputPath": "/Users/hannarosenmertz/Desktop/Source/Repos/cts/api/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/hannarosenmertz/.nuget/NuGet/NuGet.Config"

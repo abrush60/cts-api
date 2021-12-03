@@ -21,8 +21,8 @@ namespace api.Controllers
         [HttpGet]
         public List<Events> Get()
         {
-            IHandleEvents dataHandler = new EventDataHandler();
-            return dataHandler.Select();
+            IHandleEvents eventHandler = new EventDataHandler();
+            return eventHandler.Select();
         }
 
         // GET: api/Events/5
@@ -38,14 +38,16 @@ namespace api.Controllers
         [HttpPost]
         public void Post([FromBody] Events value)
         {
+            value.eventHandler = new EventDataHandler();
             value.eventHandler.Insert(value);
         }
 
         // PUT: api/Events/5
         [EnableCors("OpenPolicy")]
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] Events value)
+        [HttpPut]
+        public void Put([FromBody] Events value)
         {
+           value.eventHandler = new EventDataHandler();
             value.eventHandler.Update(value);
         }
 

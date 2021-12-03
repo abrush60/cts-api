@@ -67,10 +67,10 @@ namespace api.Data
 
         public void Update(Events events)
         {
-            string sql = "UPDATE event SET eventId=@eventId, employeeId=@employeeId, clientId=@clientId, clientEmail=@clientEmail, clientPhone=@clientPhone,confirmed=@confirmed, assigned=@assigned, dayOfStatus=@dayOfStatus, setupCompleted=@setupCompleted, inProgress=@inProgress, tearDown=@tearDown, complete=@complete ";
-            sql += "WHERE eventId = @Id;";
-
             var values = GetValues(events);
+            string sql = "UPDATE event SET employeeId=@employeeId, clientId=@clientId, clientEmail=@clientEmail, clientPhone=@clientPhone,confirmed=@confirmed, assigned=@assigned, dayOfStatus=@dayOfStatus, setupCompleted=@setupCompleted, inProgress=@inProgress, tearDown=@tearDown, complete=@complete ";
+            sql += "WHERE eventId = @eventId;";
+
             db.Open();
             db.Update(sql, values);
             db.Close();
