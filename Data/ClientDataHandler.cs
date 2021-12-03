@@ -76,7 +76,7 @@ namespace api.Data
                 {"@clientLastName", clients.clientLastName},
                 {"@clientPass", clients.clientPass},
                 {"@clientEmail", clients.clientEmail},
-                {"@clientPass", clients.clientPass}
+                {"@phone", clients.phone}
             };
 
             return values;
