@@ -44,9 +44,6 @@ namespace api.Data
             foreach(dynamic item in results)
             {
                 Review temp = new Review(){
-                    eventId = item.eventId,
-                    reviewId = item.reviewId,
-                    clientId = item.clientId,
                     text = item.text,
                     foodRating = item.foodRating,
                     musicRating = item.musicRating,
