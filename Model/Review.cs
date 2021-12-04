@@ -8,6 +8,7 @@ namespace api.models
         public int reviewId {get; set;}
         public string text {get; set;}
         public int clientId {get; set;}
+        public string package {get; set;}
 
         public int eventId {get; set;}
         public int foodRating{get; set;}

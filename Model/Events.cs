@@ -19,9 +19,7 @@ namespace api.models
         public bool inProgress {get; set;}
 
         public bool tearDown{get; set;}
-        public bool complete{get; set;}
-
-        public string kera { get; set; }        
+        public bool complete{get; set;}      
 
         public IHandleEvents eventHandler {get; set;}
 

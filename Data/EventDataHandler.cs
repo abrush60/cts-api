@@ -25,8 +25,8 @@ namespace api.Data
 
         public void Insert(Events events)
         {
-            string sql = "INSERT INTO event (eventId, employeeId, clientId, clientEmail, clientPhone, confirmed, assigned, dayOfStatus, setupCompleted, inProgress, tearDown, complete) ";
-            sql += "VALUES (@eventId, @employeeId, @clientId, @clientEmail, @clientPhone, @confirmed, @assigned, @dayOfStatus, @setupCompleted, @inProgress, @tearDown, @complete)";
+            string sql = "INSERT INTO event (eventId, employeeId, clientId, clientEmail, clientPhone, confirmed, assigned, dayOfStatus, setupCompleted, inProgress, tearDown, complete, package) ";
+            sql += "VALUES (@eventId, @employeeId, @clientId, @clientEmail, @clientPhone, @confirmed, @assigned, @dayOfStatus, @setupCompleted, @inProgress, @tearDown, @complete, @package)";
 
             var values = GetValues(events);
             db.Open();
@@ -55,7 +55,7 @@ namespace api.Data
                     setupCompleted = item.setupCompleted,
                     inProgress = item.inProgress,
                     tearDown = item.tearDown,
-                    complete = item.complete
+                    complete = item.complete,
                 };
 
                 events.Add(temp);
@@ -68,7 +68,7 @@ namespace api.Data
         public void Update(Events events)
         {
             var values = GetValues(events);
-            string sql = "UPDATE event SET employeeId=@employeeId, clientId=@clientId, clientEmail=@clientEmail, clientPhone=@clientPhone,confirmed=@confirmed, assigned=@assigned, dayOfStatus=@dayOfStatus, setupCompleted=@setupCompleted, inProgress=@inProgress, tearDown=@tearDown, complete=@complete ";
+            string sql = "UPDATE event SET employeeId=@employeeId, clientId=@clientId, clientEmail=@clientEmail, clientPhone=@clientPhone,confirmed=@confirmed, assigned=@assigned, dayOfStatus=@dayOfStatus, setupCompleted=@setupCompleted, inProgress=@inProgress, tearDown=@tearDown, complete=@complete";
             sql += "WHERE eventId = @eventId;";
 
             db.Open();
