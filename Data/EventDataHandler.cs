@@ -49,13 +49,14 @@ namespace api.Data
                     employeeId = item.employeeId,
                     clientId = item.clientId,
                     clientEmail = item.clientEmail,
+                    package = item.package,
                     confirmed = item.confirmed,
                     assigned = item.assigned,
                     dayOfStatus = item.dayOfStatus,
                     setupCompleted = item.setupCompleted,
                     inProgress = item.inProgress,
                     tearDown = item.tearDown,
-                    complete = item.complete,
+                    complete = item.complete
                 };
 
                 events.Add(temp);
@@ -68,7 +69,7 @@ namespace api.Data
         public void Update(Events events)
         {
             var values = GetValues(events);
-            string sql = "UPDATE event SET employeeId=@employeeId, clientId=@clientId, clientEmail=@clientEmail, clientPhone=@clientPhone,confirmed=@confirmed, assigned=@assigned, dayOfStatus=@dayOfStatus, setupCompleted=@setupCompleted, inProgress=@inProgress, tearDown=@tearDown, complete=@complete";
+            string sql = "UPDATE event SET employeeId=@employeeId, clientId=@clientId, clientEmail=@clientEmail, clientPhone=@clientPhone,confirmed=@confirmed, assigned=@assigned, dayOfStatus=@dayOfStatus, setupCompleted=@setupCompleted, inProgress=@inProgress, tearDown=@tearDown, complete=@complete, package=@package";
             sql += "WHERE eventId = @eventId;";
 
             db.Open();
@@ -83,6 +84,7 @@ namespace api.Data
                 {"@employeeId", events.employeeId},
                 {"@clientId", events.clientId},
                 {"@clientEmail", events.clientEmail},
+                {"@package", events.package},
                 {"@confirmed", events.confirmed},
                 {"@assigned", events.assigned},
                 {"@dayOfStatus", events.dayOfStatus},
