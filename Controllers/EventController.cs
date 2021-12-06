@@ -47,6 +47,9 @@ namespace api.Controllers
         [HttpPut]
         public void Put([FromBody] Events value)
         {
+            Console.WriteLine("confirmed" + value.confirmed);
+            Console.WriteLine("assigned" + value.assigned);
+            Console.WriteLine("eventId" + value.eventId);
            value.eventHandler = new EventDataHandler();
             value.eventHandler.Update(value);
         }
@@ -57,6 +60,9 @@ namespace api.Controllers
 
         public void PutStatus([FromBody] Events value)
         {
+             Console.WriteLine("confirmed" + value.confirmed);
+            Console.WriteLine("assigned" + value.assigned);
+            Console.WriteLine("eventId" + value.eventId);
            value.eventHandler = new EventDataHandler();
             value.eventHandler.UpdateStatus(value);
         }

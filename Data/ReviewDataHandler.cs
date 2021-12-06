@@ -25,8 +25,8 @@ namespace api.Data
 
         public void Insert(Review review)
         {
-            string sql = "INSERT INTO review (text, foodRating, musicRating, equipmentRating, overallRating) ";
-            sql += "VALUES (@text, @foodRating, @musicRating, @equipmentRating, @overallRating)";
+            string sql = "INSERT INTO review (clientId, eventId, text, foodRating, musicRating, equipmentRating, overallRating) ";
+            sql += "VALUES (@clientId, @eventId, @text, @foodRating, @musicRating, @equipmentRating, @overallRating)";
 
             var values = GetValues(review);
             db.Open();
