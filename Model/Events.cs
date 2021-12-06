@@ -12,16 +12,16 @@ namespace api.models
 
         public string clientEmail {get; set;}
 
-        public bool confirmed {get; set;}
-        public bool assigned {get; set;}
-        public bool dayOfStatus {get; set;}
-        public bool setupCompleted {get; set;}
-        public bool inProgress {get; set;}
+        public string package {get; set;}
 
-        public bool tearDown{get; set;}
-        public bool complete{get; set;}
+        public int confirmed {get; set;}
+        public int assigned {get; set;}
+        public int dayOfStatus {get; set;}
+        public int setupCompleted {get; set;}
+        public int inProgress {get; set;}
 
-        public string kera { get; set; }        
+        public int tearDown{get; set;}
+        public int complete{get; set;}      
 
         public IHandleEvents eventHandler {get; set;}
 

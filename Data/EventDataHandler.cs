@@ -25,8 +25,8 @@ namespace api.Data
 
         public void Insert(Events events)
         {
-            string sql = "INSERT INTO event (eventId, employeeId, clientId, clientEmail, clientPhone, confirmed, assigned, dayOfStatus, setupCompleted, inProgress, tearDown, complete) ";
-            sql += "VALUES (@eventId, @employeeId, @clientId, @clientEmail, @clientPhone, @confirmed, @assigned, @dayOfStatus, @setupCompleted, @inProgress, @tearDown, @complete)";
+            string sql = "INSERT INTO event (eventId, employeeId, clientId, clientEmail, clientPhone, confirmed, assigned, dayOfStatus, setupCompleted, inProgress, tearDown, complete, package) ";
+            sql += "VALUES (@eventId, @employeeId, @clientId, @clientEmail, @clientPhone, @confirmed, @assigned, @dayOfStatus, @setupCompleted, @inProgress, @tearDown, @complete, @package)";
 
             var values = GetValues(events);
             db.Open();
@@ -49,6 +49,7 @@ namespace api.Data
                     employeeId = item.employeeId,
                     clientId = item.clientId,
                     clientEmail = item.clientEmail,
+                    package = item.package,
                     confirmed = item.confirmed,
                     assigned = item.assigned,
                     dayOfStatus = item.dayOfStatus,
@@ -68,7 +69,18 @@ namespace api.Data
         public void Update(Events events)
         {
             var values = GetValues(events);
-            string sql = "UPDATE event SET employeeId=@employeeId, clientId=@clientId, clientEmail=@clientEmail, clientPhone=@clientPhone,confirmed=@confirmed, assigned=@assigned, dayOfStatus=@dayOfStatus, setupCompleted=@setupCompleted, inProgress=@inProgress, tearDown=@tearDown, complete=@complete ";
+            string sql = "UPDATE event SET employeeId=@employeeId, clientId=@clientId, clientEmail=@clientEmail, clientPhone=@clientPhone,confirmed=@confirmed, assigned=@assigned, dayOfStatus=@dayOfStatus, setupCompleted=@setupCompleted, inProgress=@inProgress, tearDown=@tearDown, complete=@complete, package=@package";
+            sql += "WHERE eventId = @eventId;";
+
+            db.Open();
+            db.Update(sql, values);
+            db.Close();
+        }
+
+        public void UpdateStatus(Events events)
+        {
+            var values = GetValues(events);
+            string sql = "UPDATE event SET confirmed=@confirmed, assigned=@assigned, dayOfStatus=@dayOfStatus, setupCompleted=@setupCompleted, inProgress=@inProgress, tearDown=@tearDown, complete=@complete, package=@package";
             sql += "WHERE eventId = @eventId;";
 
             db.Open();
@@ -83,6 +95,7 @@ namespace api.Data
                 {"@employeeId", events.employeeId},
                 {"@clientId", events.clientId},
                 {"@clientEmail", events.clientEmail},
+                {"@package", events.package},
                 {"@confirmed", events.confirmed},
                 {"@assigned", events.assigned},
                 {"@dayOfStatus", events.dayOfStatus},
