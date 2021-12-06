@@ -51,6 +51,16 @@ namespace api.Controllers
             value.eventHandler.Update(value);
         }
 
+        // PUT: api/Events/status
+        [EnableCors("OpenPolicy")]
+        [HttpPut("status")]
+
+        public void PutStatus([FromBody] Events value)
+        {
+           value.eventHandler = new EventDataHandler();
+            value.eventHandler.UpdateStatus(value);
+        }
+
         // DELETE: api/Events/5
         [EnableCors("OpenPolicy")]
         [HttpDelete("{id}")]

@@ -77,6 +77,17 @@ namespace api.Data
             db.Close();
         }
 
+        public void UpdateStatus(Events events)
+        {
+            var values = GetValues(events);
+            string sql = "UPDATE event SET confirmed=@confirmed, assigned=@assigned, dayOfStatus=@dayOfStatus, setupCompleted=@setupCompleted, inProgress=@inProgress, tearDown=@tearDown, complete=@complete, package=@package";
+            sql += "WHERE eventId = @eventId;";
+
+            db.Open();
+            db.Update(sql, values);
+            db.Close();
+        }
+
         public Dictionary<string, object> GetValues(Events events)
         {
             var values = new Dictionary<string, object>(){

@@ -14,5 +14,7 @@ namespace api.Interfaces
          public void Update(Events events);
 
          public void Insert(Events events);
+
+         public void UpdateStatus(Events events);
     }
 }
