@@ -47,7 +47,6 @@ namespace api.Data
                     reviewId = item.reviewId,
                     clientId = item.clientId,
                     eventId = item.eventId,
-                    package = item.package,
                     text = item.text,
                     foodRating = item.foodRating,
                     musicRating = item.musicRating,
@@ -84,7 +83,7 @@ namespace api.Data
                 {"@musicRating", review.musicRating},
                 {"@equipmentRating", review.equipmentRating},
                 {"@overallRating", review.overallRating},
-                {"@package", review.package},
+            
             };
 
             return values;
